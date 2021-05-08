@@ -1,0 +1,15 @@
+;Sum of N 8-bit numbers in an Array
+	LXI H,00C8H
+	MOV C,M
+	MVI A,0000H
+	MVI B,0000H
+goto2:	INX H
+	ADD M
+	JNC goto1
+	INR B
+goto1:	DCR C
+	JNZ goto2
+	STA 00C5H
+	MOV A,B
+	STA 00C6H
+	HLT
